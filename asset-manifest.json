@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/news-crud/static/css/main.af3de4f8.css",
+    "main.js": "/news-crud/static/js/main.f7a994e7.js",
+    "index.html": "/news-crud/index.html",
+    "main.af3de4f8.css.map": "/news-crud/static/css/main.af3de4f8.css.map",
+    "main.f7a994e7.js.map": "/news-crud/static/js/main.f7a994e7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.af3de4f8.css",
+    "static/js/main.f7a994e7.js"
+  ]
+}
