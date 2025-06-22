@@ -1,26 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import NewsList from './components/NewsList';
+import Modal from './components/Modal';
+import NewsEditor from './components/NewsEditor';
+import { useNews } from './context/NewsContext';
+import { NewsItemType } from './types';
 
-function App() {
+const App = () => {
+  const { news, addNews, updateNews, editingNewsId, setEditingNewsId } = useNews();
+
+  const onModalSubmit = (news: NewsItemType) => {
+    updateNews(news);
+    setEditingNewsId(null);
+  };
+
+  const editableNews = news.find((n) => n.id === editingNewsId);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen px-4 py-6 flex flex-col lg:flex-row lg:items-start lg:justify-start">
+      <div className="w-full max-w-xl lg:max-w-md">
+        <NewsEditor onSubmit={addNews} />
+        <NewsList />
+      </div>
+      {editingNewsId && (
+        <Modal>
+          <NewsEditor
+            editableNews={editableNews}
+            onSubmit={onModalSubmit}
+            onCancel={() => setEditingNewsId(null)}
+          />
+        </Modal>
+      )}
     </div>
   );
-}
+};
 
 export default App;
