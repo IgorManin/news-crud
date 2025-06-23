@@ -107,7 +107,7 @@ const NewsEditor: React.FC<NewsEditorProps> = ({ editableNews, onSubmit, onCance
         </label>
         {form.image && (
           <Button
-            icon="/icons/trash.png"
+            icon={`${process.env.PUBLIC_URL}/icons/trash.png`}
             type="button"
             size="small"
             variant="danger"

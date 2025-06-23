@@ -23,7 +23,7 @@ const NewsItem: React.FC<NewsItemProps> = ({ newsItem }) => {
       {editedAt && <p className="text-xs text-gray-400 mb-2">Изменено: {editedAt}</p>}
       <div className="flex gap-2 flex-wrap ">
         <Button
-          icon="/icons/pencil.png"
+          icon={`${process.env.PUBLIC_URL}/icons/pencil.png`}
           onClick={() => setEditingNewsId(id)}
           variant="secondary"
           size="small"
@@ -31,7 +31,7 @@ const NewsItem: React.FC<NewsItemProps> = ({ newsItem }) => {
           Редактировать
         </Button>
         <Button
-          icon="/icons/trash.png"
+          icon={`${process.env.PUBLIC_URL}/icons/trash.png`}
           onClick={() => deleteNews(id)}
           variant="danger"
           size="small"
