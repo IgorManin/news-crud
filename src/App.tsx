@@ -13,7 +13,8 @@ const App = () => {
     setEditingNewsId(null);
   };
 
-  const editableNews = news.find((n) => n.id === editingNewsId);
+  const editableNews =
+    news && Array.isArray(news) ? news.find((n) => n.id === editingNewsId) : undefined;
 
   return (
     <div className="min-h-screen px-4 py-6 flex flex-col lg:flex-row lg:items-start lg:justify-start">

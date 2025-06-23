@@ -14,7 +14,7 @@ interface NewsContextInterface {
 const NewsContext = createContext<NewsContextInterface | undefined>(undefined);
 
 export const NewsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [news, setNews] = useLocalStorage<NewsItemType[]>('news');
+  const [news, setNews] = useLocalStorage<NewsItemType[]>('news', []);
   const [editingNewsId, setEditingNewsId] = useState<number | null>(null);
 
   const addNews = (item: NewsItemType) => {
